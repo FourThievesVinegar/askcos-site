@@ -44,7 +44,7 @@
       .then(resp => resp.json())
       .then(json => {
         if (json['state'] == 'completed') {
-          notify('Your ASKCOS tree builder job has finished!')
+          notify('Your Chemhacktica tree builder job has finished!')
           showResults(id)
         }
         else {

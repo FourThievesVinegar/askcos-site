@@ -46,7 +46,7 @@ class TreeBuilderSerializer(serializers.Serializer):
         if not mol:
             raise serializers.ValidationError('Cannot parse smiles with rdkit.')
         if is_banned(self.context['request'], value):
-            raise serializers.ValidationError('ASKCOS does not provide results for compounds on restricted lists such as the CWC and DEA schedules.')
+            raise serializers.ValidationError('Please don\'t waste our cycles on narcotics or weapons. That chemistry is well-studied. If you REALLY want this reaction, fork the askcos-core repo and edit the files in the /askcos/utilities/banned directory.')
         return Chem.MolToSmiles(mol)
 
     def validate_chemical_property_logic(self, value):
