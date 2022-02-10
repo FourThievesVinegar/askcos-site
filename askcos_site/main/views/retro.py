@@ -147,7 +147,7 @@ def retro(request, smiles=None, chiral=True, mincount=0, max_n=200):
                 })
 
     elif smiles is not None:
-        context['err'] = 'ASKCOS does not provide results for compounds on restricted lists such as the CWC and DEA schedules.'
+        context['err'] = 'Please don\'t waste our cycles on narcotics or weapons. That chemistry is well-studied. If you REALLY want this reaction, fork the askcos-core repo and edit the files in the /askcos/utilities/banned directory.'
     else:
 
 
@@ -239,8 +239,8 @@ def ajax_start_retro_mcts_celery(request):
     smiles = request.GET.get('smiles', None)
 
     if is_banned(request, smiles):
-        data['html_trees'] = 'ASKCOS does not provide results for compounds on restricted lists such as the CWC and DEA schedules.'
-        return JsonResponse(data)
+        data['error'] = 'Hey are you really sure? It seems like you\'re fucking around, do you *need* to find out?'
+        # return JsonResponse(data)
 
     max_depth = int(request.GET.get('max_depth', 4))
     max_branching = int(request.GET.get('max_branching', 25))

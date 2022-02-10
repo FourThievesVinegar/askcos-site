@@ -27,7 +27,7 @@ def tree_builder(request):
     smiles = Chem.MolToSmiles(mol)
 
     if is_banned(request, smiles):
-        resp['error'] = 'ASKCOS does not provide results for compounds on restricted lists such as the CWC and DEA schedules.'
+        resp['error'] = 'Please don\'t waste our cycles on narcotics or weapons. That chemistry is well-studied. If you REALLY want this reaction, fork the askcos-core repo and edit the files in the /askcos/utilities/banned directory.'
         return JsonResponse(resp, status=400)
 
     max_depth = int(request.GET.get('max_depth', 4))

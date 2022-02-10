@@ -15,8 +15,8 @@ def singlestep(request):
     target = request.GET.get('target')
 
     if is_banned(request, target):
-        resp['error'] = 'ASKCOS does not provide results for compounds on restricted lists such as the CWC and DEA schedules.'
-        return JsonResponse(resp, status=400)
+        resp['error'] = 'Please don\'t waste our cycles on narcotics or weapons. That chemistry is well-studied. If you REALLY want this reaction, fork the askcos-core repo and edit the files in the /askcos/utilities/banned directory.'
+        # return JsonResponse(resp, status=400)
 
     max_num_templates = int(request.GET.get('num_templates', 100))
     max_cum_prob = float(request.GET.get('max_cum_prob', 0.995))
