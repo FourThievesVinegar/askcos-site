@@ -15,7 +15,7 @@ def singlestep(request):
     target = request.GET.get('target')
 
     if is_banned(request, target):
-        resp['error'] = 'Hey are you really sure? It seems like you\'re fucking around, do you *need* to find out?'
+        resp['error'] = 'Please don\'t waste our cycles on narcotics or weapons. That chemistry is well-studied. If you REALLY want this reaction, fork the askcos-core repo and edit the files in the /askcos/utilities/banned directory.'
         # return JsonResponse(resp, status=400)
 
     max_num_templates = int(request.GET.get('num_templates', 100))
